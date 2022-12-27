@@ -1,0 +1,86 @@
+.root {
+  position: relative;
+}
+
+.selector {
+  border-radius: 6px;
+  border: 1px solid #dce1e6;
+  display: flex;
+}
+
+.selectorOpened {
+  border-radius: 6px 6px 0 0;
+}
+
+.selectorValues {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 6px;
+  gap: 6px;
+}
+
+.dropdownBtn {
+  cursor: pointer;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownBtnIcon {
+  width: 16px;
+  transition: transform .2s;
+}
+
+.dropdownBtnIconOpened {
+  transform:scaleY(-1);
+}
+
+.value {
+  cursor: pointer;
+  background: #dce1e6;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.input {
+  flex: 1;
+  height: 25px;
+  min-width: 20px;
+  font-size: 16px;
+  border: none;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.dropdown {
+  border-radius: 0 0 6px 6px;
+  border: 1px solid #dce1e6;
+  border-top: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.option {
+  padding: 6px;
+  cursor: pointer;
+}
+
+.option:not(:last-child) {
+  border-bottom: 1px solid #dce1e6;
+}
+
+.optionSelected {
+  background: #dce1e6;
+}
+
+.emptyOptions {
+  padding: 6px;
+  opacity: .5;
+  font-size: 15px;
+}

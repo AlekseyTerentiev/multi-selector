@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { MultiSelector } from "./MultiSelector/MultiSelector";
 
 function App() {
+  const [users, setUsers] = useState();
+
+  async function fetchUsers() {
+    const res = await fetch("https://reqres.in/api/users");
+    const { data } = await res.json();
+    setUsers(data.map((v: any) => v.email));
+  }
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  if (!users) {
+    return <div>Loading</div>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MultiSelector options={users} />
+    </>
   );
 }
 
